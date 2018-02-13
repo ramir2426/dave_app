@@ -5,7 +5,7 @@
     <div class="left_col scroll-view">
 
       <div class="navbar nav_title" style="border: 0;">
-        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Patner App</span></a>
       </div>
       <div class="clearfix"></div>
 
@@ -17,7 +17,7 @@
         </div>
         <div class="profile_info">
           <span>Welcome,</span>
-          <h2>John Doe</h2>
+          <h2><%= current_user.full_name%></h2>
         </div>
       </div>
       <!-- /menu profile quick info -->
@@ -169,9 +169,11 @@
         <a data-toggle="tooltip" data-placement="top" title="Lock">
           <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
         </a>
-        <a data-toggle="tooltip" data-placement="top" title="Logout">
-          <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-        </a>
+        <% if user_signed_in? %>
+          <%= link_to( destroy_user_session_path, method: :delete,  html_options: {title: "Logout"}) do %>
+            <span class="glyphicon glyphicon-off" aria-hidden="true" title="Logout"></span>
+          <%end%>
+        <%end%>
       </div>
       <!-- /menu footer buttons -->
     </div>
