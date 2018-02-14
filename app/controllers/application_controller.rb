@@ -6,8 +6,17 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
   before_filter :prepare_exception_notifier
   before_action :configure_permitted_parameters, if: :devise_controller?
-  rescue_from ActionController::RoutingError, :with => :controller_error  
+  rescue_from ActionController::RoutingError, :with => :controller_exception  
   rescue_from ActiveRecord::RecordNotFound, :with => :active_record_error
+
+  def controller_exception 
+  # ExceptionNotifier::Notifier.exception_notification(request.env, exception).deliver_later     
+    respond_to do |f|       
+      f.html{ render :file => "errors/404", :status => 404 }      
+      f.js{ render :partial => "errors/ajax_404", :status => 404 }  
+      f.all {render :file => "errors/404", :status => 404}
+    end  
+  end 
 
   protected
 
@@ -23,6 +32,13 @@ class ApplicationController < ActionController::Base
     end
   end
   private
+  def active_record_error(exception)     
+  # ExceptionNotifier::Notifier.exception_notification(request.env, exception).deliver_later     
+    respond_to do |f|       
+      f.html{ render :file => "errors/404", :status => 404 }      
+      f.js{ render :partial => "errors/ajax_404", :status => 404 }    
+    end
+  end
   def prepare_exception_notifier
     request.env["exception_notifier.exception_data"] = {
       :current_user => current_user
