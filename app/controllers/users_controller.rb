@@ -73,7 +73,13 @@ class UsersController < ApplicationController
 	end
 
 	def members
-		@users = User.where(role_id: 0)
+		if current_user.is_super_admin?
+			@users = User.where(role_id: 0)
+		elsif current_user.is_company_admin?
+			@users = current_user.descendants
+		else
+			@users = current_user.root.descendants
+		end
 	end
 
 	def new_member
