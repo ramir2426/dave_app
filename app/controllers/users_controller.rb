@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 			if @user.save
 				redirect_to super_admin_users_path if @user.is_super_admin?
 				redirect_to company_admin_users_path if @user.is_company_admin?
-				redirect_to members_users_path if @user_id.is_member?
+				redirect_to members_users_path if @user.is_member?
 			else
 				redirect_to new_super_admin_users_path, notice: @user.errors.full_messages  if @user.is_super_admin?
 				redirect_to new_company_admin_users_path, notice: @user.errors.full_messages  if @user.is_company_admin?
