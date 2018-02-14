@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
+  resources :users do
+    collection do
+      get "super_admin", to: "users#super_admin", as: :super_admin
+      get "new_super_admin", to: "users#new_super_admin", as: :new_super_admin
+    end
+  end
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
