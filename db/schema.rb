@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214030747) do
+ActiveRecord::Schema.define(version: 20180214165049) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "transactions", force: :cascade do |t|
+    t.float    "amount",     null: false
+    t.integer  "trans_type", null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",  null: false
@@ -31,10 +44,14 @@ ActiveRecord::Schema.define(version: 20180214030747) do
     t.integer  "role_id",                default: 0
     t.float    "percentage",             default: 0.0
     t.string   "ancestry"
+    t.float    "amount",                 default: 0.0
+    t.float    "total_profit",           default: 0.0
+    t.float    "total_loss",             default: 0.0
   end
 
-  add_index "users", ["ancestry"], name: "index_users_on_ancestry"
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["ancestry"], name: "index_users_on_ancestry", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "transactions", "users"
 end

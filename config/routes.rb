@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get "team/:id", to: "users#team", as: :team
     end
   end
+  resources :transactions
 
   
   # The priority is based upon order of creation: first created -> highest priority.
