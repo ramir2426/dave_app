@@ -52,10 +52,7 @@
                     <td><%= transaction.amount%></td>
                     <td><%= transaction.trans_type == 0 ? "Profit" : "Loss"%></td>
                     <td><%= transaction.user.full_name%></td>
-                    <td><%= link_to "View", user_path(@user)%>
-                      <%if current_user.is_company_admin? || current_user.is_super_admin?%>
-                          <%= link_to "view Team", team_users_path(@user)%>
-                      <%end%>
+                    <td><%= link_to "Detail", transaction_path(transaction)%>
                     </td>
                   </tr>
                 <%end%>

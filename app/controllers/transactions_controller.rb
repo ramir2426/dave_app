@@ -11,6 +11,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/1
   # GET /transactions/1.json
   def show
+    @logs = @transaction.trans_logs
   end
 
   # GET /transactions/new
@@ -31,7 +32,6 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    byebug
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|

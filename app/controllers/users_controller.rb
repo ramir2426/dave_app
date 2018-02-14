@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 		@user = User.new(role_id: 2)
 	end
 	def create
-		byebug
 		if @referral_user.nil?
 			@user = User.new(user_params)
 			if @user.save

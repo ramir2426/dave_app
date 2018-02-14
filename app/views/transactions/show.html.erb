@@ -1,19 +1,69 @@
-<p id="notice"><%= notice %></p>
+<!-- page content -->
+<div class="right_col" role="main">
+	<div class="">
+		<div class="page-title">
+			<div class="title_left">
+				<h3>This Paymet Detail</h3>
+			</div>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @transaction.amount %>
-</p>
+			<div class="title_right">
+				<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search for...">
+										<span class="input-group-btn">
+															<button class="btn btn-default" type="button">Go!</button>
+													</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @transaction.type %>
-</p>
+		<div class="row">
 
-<p>
-  <strong>User:</strong>
-  <%= @transaction.user %>
-</p>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="x_panel" style="height:600px;">
+					<div class="x_title">
+						<h2>Transaction <small>detail</small></h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li><a class="close-link"><i class="fa fa-close"></i></a>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<p class="text-muted font-13 m-b-30">
+							Distribution
+						</p>
+						<table id="datatable" class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th>User</th>
+									<th>Amount</th>
+									<th>Type</th>
+								</tr>
+							</thead>
 
-<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
-<%= link_to 'Back', transactions_path %>
+
+							<tbody>
+								<%@logs.each do |log|%>
+									<tr>
+										<td><%= log.user.full_name%></td>
+										<td><%= log.amount%></td>
+										<td><%= log.payment.trans_type == 0 ? "Profit": "Loss"%></td>
+									</tr>
+								<%end%>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /page content -->
+
+<!--Test Page specific JS -->
+<script> 
+	$("#datatable").DataTable();
+</script>>

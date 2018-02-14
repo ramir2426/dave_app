@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214173422) do
+ActiveRecord::Schema.define(version: 20180214175823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "trans_logs", force: :cascade do |t|
+    t.float    "amount"
+    t.float    "pre_balance"
+    t.float    "new_balance"
+    t.integer  "transaction_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "trans_logs", ["transaction_id"], name: "index_trans_logs_on_transaction_id", using: :btree
+  add_index "trans_logs", ["user_id"], name: "index_trans_logs_on_user_id", using: :btree
 
   create_table "transaction_logs", force: :cascade do |t|
     t.float    "amount",         default: 0.0
@@ -66,6 +79,8 @@ ActiveRecord::Schema.define(version: 20180214173422) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "trans_logs", "transactions"
+  add_foreign_key "trans_logs", "users"
   add_foreign_key "transaction_logs", "transactions"
   add_foreign_key "transaction_logs", "users"
   add_foreign_key "transactions", "users"
