@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get "new_company_admin", to: "users#new_company_admin", as: :new_company_admin
       get "members", to: "users#members", as: :members
       get "new_member", to: "users#new_member", as: :new_member
+      get "team/:id", to: "users#team", as: :team
     end
   end
 

@@ -3,7 +3,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Company Admin Page</h3>
+        <h3>Team Page</h3>
       </div>
 
       <div class="title_right">
@@ -24,11 +24,11 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel" style="height:600px;">
           <div class="x_title">
-            <h2>Company <small>Admin</small></h2>
+            <h2>Member <small>network</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li class="dropdown" title="Add New Admin">
-                <%if current_user.is_super_admin? %>
-                  <%= link_to  new_company_admin_users_path do %>
+                <%if current_user.is_company_admin? || current_user.is_super_admin? %>
+                  <%= link_to  new_member_users_path(reff_user: @user.id) do %>
                     <i class="fa fa-plus"></i>
                   <%end%>
                 <%end%>
@@ -72,9 +72,6 @@
                     <td><%= link_to "View", user_path(user)%>
                       <%= link_to "Edit", edit_user_path(user)%>
                       <%= link_to "Add Member", new_member_users_path(reff_user: user.id)%>
-                      <%if current_user.is_super_admin? %>
-                        <%= link_to "view Team", team_users_path(user)%>
-                      <%end%>
                     </td>
                   </tr>
                 <%end%>

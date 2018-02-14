@@ -14,11 +14,17 @@
                 <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control has-feedback-left", id: "inputSuccess4" %>
                 <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
               </div>
-
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                <%= f.number_field :percentage, autofocus: true, placeholder: "Percentage %", class: "form-control", id: "inputSuccess5" %>
-                <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
-              </div>
+              <%if @user.is_super_admin? %>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <%= f.number_field :percentage, autofocus: true, placeholder: "Percentage %", class: "form-control", id: "inputSuccess5", readonly: true %>
+                  <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
+                </div>
+              <%else %>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <%= f.number_field :percentage, autofocus: true, placeholder: "Percentage %", class: "form-control", id: "inputSuccess5", min: 0, max: 100  %>
+                  <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
+                </div>
+              <%end%>
 
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>

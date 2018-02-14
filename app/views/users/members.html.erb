@@ -27,8 +27,8 @@
             <h2>Member <small>network</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li class="dropdown" title="Add New Admin">
-                <%if current_user.is_super_admin? %>
-                  <%= link_to  new_company_admin_users_path do %>
+                <%if current_user.is_company_admin? || current_user.is_super_admin? %>
+                  <%= link_to  new_member_users_path do %>
                     <i class="fa fa-plus"></i>
                   <%end%>
                 <%end%>

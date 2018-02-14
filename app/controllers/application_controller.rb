@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   layout :layout_by_resource
   before_action :configure_permitted_parameters, if: :devise_controller?
+  rescue_from ActionController::RoutingError, :with => :controller_error  
+  rescue_from ActiveRecord::RecordNotFound, :with => :active_record_error
 
   protected
 
