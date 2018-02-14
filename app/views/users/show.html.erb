@@ -24,7 +24,7 @@
                           <h2>User <small>Profile</small></h2>
                           <ul class="nav navbar-right panel_toolbox">
                             <li class="dropdown" title="Edit">
-                              <%if current_user.is_super_admin? || current_user.is_company_admin? %>
+                              <%if current_user.is_super_admin? || current_user.is_company_admin? || current_user.id == @user.id%>
                                 <%= link_to edit_user_path(@user) do %>
                                   <i class="fa fa-edit"></i>
                                 <%end%>
@@ -64,11 +64,11 @@
                           <div class="flex">
                             <ul class="list-inline count2">
                               <li>
-                                <h3>123</h3>
+                                <h3><%= @user.descendants.count%></h3>
                                 <span>Team Member</span>
                               </li>
                               <li>
-                                <h3>1234</h3>
+                                <h3 class="<%= @user.amount < 0 ? "unpaid" : "paid" %>"><%= @user.amount.abs%></h3>
                                 <span>Amount</span>
                               </li>
                               <li>

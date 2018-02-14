@@ -53,6 +53,7 @@
                   <th>Last NAme</th>
                   <th>Email</th>
                   <th>Role</th>
+                  <th>Balance</th>
                   <th>Percentage</th>
                   <th>Actions</th>
                 </tr>
@@ -66,6 +67,7 @@
                     <td><%= user.last_name%></td>
                     <td><%= user.email%></td>
                     <td><%= user.role_id%></td>
+                    <td class="<%= user.amount < 0 ? "unpaid" : "paid" %>"><%= user.amount.abs%></td>
                     <td><%= user.percentage%></td>
                     <td><%= link_to "view", user_path(user)%>
                       <%unless current_user.is_member?%>
