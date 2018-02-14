@@ -49,7 +49,7 @@
 								<%@logs.each do |log|%>
 									<tr>
 										<td><%= log.user.full_name%></td>
-										<td><%= log.amount%></td>
+										<td class="<%=log.amount < 0 ? "paid" : "unpaid"%>"><%= log.amount.abs%></td>
 										<td><%= log.payment.trans_type == 0 ? "Profit": "Loss"%></td>
 									</tr>
 								<%end%>

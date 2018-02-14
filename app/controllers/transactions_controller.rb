@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @user = User.find_by_id(params[:user_id])
-    @transactions = Transaction.all
+    @transactions = @user.is_super_admin? ? Transaction.all : @user.transactions
   end
 
   # GET /transactions/1
