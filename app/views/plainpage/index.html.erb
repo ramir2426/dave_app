@@ -68,7 +68,9 @@
                     <td><%= user.role_id%></td>
                     <td><%= user.percentage%></td>
                     <td><%= link_to "view", user_path(user)%>
-                      <%= link_to "edit", edit_user_path(user)%>
+                      <%unless current_user.is_member?%>
+                        <%= link_to "edit", edit_user_path(user)%>
+                      <%end%>
                     </td>
                   </tr>
                 <%end%>
