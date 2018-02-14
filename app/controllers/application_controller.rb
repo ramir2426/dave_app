@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   layout :layout_by_resource
+  before_filter :prepare_exception_notifier
   before_action :configure_permitted_parameters, if: :devise_controller?
   rescue_from ActionController::RoutingError, :with => :controller_error  
   rescue_from ActiveRecord::RecordNotFound, :with => :active_record_error
@@ -20,6 +21,12 @@ class ApplicationController < ActionController::Base
     else
       "application"
     end
+  end
+  private
+  def prepare_exception_notifier
+    request.env["exception_notifier.exception_data"] = {
+      :current_user => current_user
+    }
   end
 
 end
