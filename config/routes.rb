@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     collection do
       get "super_admin", to: "users#super_admin", as: :super_admin
       get "new_super_admin", to: "users#new_super_admin", as: :new_super_admin
+      get "company_admin", to: "users#company_admin", as: :company_admin
+      get "new_company_admin", to: "users#new_company_admin", as: :new_company_admin
+      get "members", to: "users#members", as: :members
+      get "new_member", to: "users#new_member", as: :new_member
     end
   end
 
