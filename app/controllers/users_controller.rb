@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 		@user = User.new(role_id: 2)
 	end
 	def create
+		byebug
 		if @referral_user.nil?
 			@user = User.new(user_params)
 			if @user.save
@@ -76,6 +77,7 @@ class UsersController < ApplicationController
 		if current_user.is_super_admin?
 			@users = User.where(role_id: 0)
 		elsif current_user.is_company_admin?
+			@user = current_user
 			@users = current_user.descendants
 		else
 			@users = current_user.root.descendants

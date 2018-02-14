@@ -27,8 +27,8 @@
             <h2>Member <small>network</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li class="dropdown" title="Add New Admin">
-                <%if current_user.is_company_admin? || current_user.is_super_admin? %>
-                  <%= link_to  new_member_users_path do %>
+                <%if current_user.is_company_admin? %>
+                  <%= link_to new_member_users_path(reff_user: @user.id) do %>
                     <i class="fa fa-plus"></i>
                   <%end%>
                 <%end%>
@@ -70,8 +70,10 @@
                     <td><%= user.role_id%></td>
                     <td><%= user.percentage%></td>
                     <td><%= link_to "View", user_path(user)%>
+                    <%if current_user.is_company_admin? || current_user.is_super_admin?%>
                       <%= link_to "Edit", edit_user_path(user)%>
                       <%= link_to "Add Member", new_member_users_path(reff_user: user.id)%>
+                    <%end%>
                     </td>
                   </tr>
                 <%end%>
