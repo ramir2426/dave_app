@@ -79,7 +79,7 @@ class UsersController < ApplicationController
 			@user = current_user
 			@users = current_user.descendants
 		else
-			@users = current_user.root.descendants
+			@users = current_user.descendants
 		end
 	end
 
