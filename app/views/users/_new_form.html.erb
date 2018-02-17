@@ -25,6 +25,14 @@
       <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
     </div>
   <%end%>
+  <%if @user.role_id == "Company Admin"%>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12">Company Name</label>
+      <div class="col-md-9 col-sm-9 col-xs-12">
+        <%= f.text_field :company_name, autocomplete: "off", class: "form-control", placeholder: "Add Company Name" %>
+      </div>
+    </div>
+  <%end%>
 
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
