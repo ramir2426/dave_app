@@ -1,17 +1,17 @@
 <%= form_for (@user), html: {class: "form-horizontal"} do |f| %>
 
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-    <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "form-control has-feedback-left", id: "inputSuccess2" %>
+    <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "form-control has-feedback-left", id: "inputSuccess2", required: true %>
     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
   </div>
 
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <%= f.text_field :last_name, autofocus: true, placeholder: "Last Name", class: "form-control", id: "inputSuccess3" %>
+  <%= f.text_field :last_name, autofocus: true, placeholder: "Last Name", class: "form-control", id: "inputSuccess3", required: true %>
     <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
   </div>
 
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control has-feedback-left", id: "inputSuccess4" %>
+    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control has-feedback-left", id: "inputSuccess4", required: true %>
     <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
   </div>
   <%if @user.is_super_admin? %>
@@ -21,7 +21,7 @@
     </div>
   <%else %>
     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-      <%= f.number_field :percentage, autofocus: true, placeholder: "Percentage %", class: "form-control", id: "inputSuccess5", min: 0, max: 100  %>
+      <%= f.number_field :percentage, autofocus: true, placeholder: "Percentage %", class: "form-control", id: "inputSuccess5", min: 0, max: find_remaining_partner_ship(@user_id)  %>
       <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
     </div>
   <%end%>
@@ -29,7 +29,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">Company Name</label>
       <div class="col-md-9 col-sm-9 col-xs-12">
-        <%= f.text_field :company_name, autocomplete: "off", class: "form-control", placeholder: "Add Company Name" %>
+        <%= f.text_field :company_name, autocomplete: "off", class: "form-control", placeholder: "Add Company Name", required: true %>
       </div>
     </div>
   <%end%>
@@ -37,7 +37,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
     <div class="col-md-9 col-sm-9 col-xs-12">
-      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password (6 characters minimum)" %>
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password (6 characters minimum)", required: true %>
     </div>
   </div>
   
@@ -45,7 +45,7 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirm Password <span class="required">*</span>
     </label>
     <div class="col-md-9 col-sm-9 col-xs-12">
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password", required: true %>
     </div>
   </div>
   <%= f.hidden_field :role_id, value: @user.role_id%>
