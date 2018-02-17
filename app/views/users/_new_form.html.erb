@@ -14,7 +14,7 @@
     <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control has-feedback-left", id: "inputSuccess4", required: true %>
     <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
   </div>
-  <%if @user.is_super_admin? %>
+  <%if @user.is_super_admin? || @user.is_company_admin?%>
     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
       <%= f.number_field :percentage, autofocus: true, placeholder: "Percentage %", class: "form-control", id: "inputSuccess5", readonly: true %>
       <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
@@ -27,6 +27,13 @@
   <%end%>
   <%if @user.role_id == "Company Admin"%>
     <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12">Admin Percentage</label>
+      <div class="col-md-9 col-sm-9 col-xs-12 has-feedback">
+        <%= f.number_field :admin_percent, autocomplete: "off", class: "form-control", placeholder: "Admin Percentage", required: true, id: "admin-percent" , min: 0, max: 100%>
+        <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">Company Name</label>
       <div class="col-md-9 col-sm-9 col-xs-12">
         <%= f.text_field :company_name, autocomplete: "off", class: "form-control", placeholder: "Add Company Name", required: true %>
@@ -37,7 +44,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
     <div class="col-md-9 col-sm-9 col-xs-12">
-      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password (6 characters minimum)", required: true %>
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password (6 characters minimum)" %>
     </div>
   </div>
   
@@ -45,7 +52,7 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12">Confirm Password <span class="required">*</span>
     </label>
     <div class="col-md-9 col-sm-9 col-xs-12">
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password", required: true %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
     </div>
   </div>
   <%= f.hidden_field :role_id, value: @user.role_id%>

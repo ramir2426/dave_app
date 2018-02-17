@@ -95,7 +95,7 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:role_id, :current_password, :first_name, :last_name, :email, :password, :password_confirmation, :percentage)
+		params.require(:user).permit(:role_id, :current_password, :first_name, :last_name, :email, :password, :password_confirmation, :percentage, :admin_percent, :company_name )
 	end
 
 	def find_user_by_referral

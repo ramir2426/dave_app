@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217212600) do
+ActiveRecord::Schema.define(version: 20180217220430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180217212600) do
     t.float    "total_profit",           default: 0.0
     t.float    "total_loss",             default: 0.0
     t.string   "company_name"
+    t.float    "admin_percent",          default: 0.0
   end
 
   add_index "users", ["ancestry"], name: "index_users_on_ancestry", using: :btree
