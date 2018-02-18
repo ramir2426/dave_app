@@ -70,8 +70,8 @@
                     <td><%= link_to "View", user_path(user)%>
                       <%if current_user.is_company_admin? || current_user.is_super_admin?%>
                         <%= link_to "Add Member", new_member_users_path(reff_user: user.id)%>
-                        <%= link_to "Add Payment", new_transaction_path(user_id: user.id)%>
                         <%if current_user.is_super_admin? %>
+                          <%= link_to "Add Payment", new_transaction_path(user_id: user.id)%>
                           <%= link_to "view Team", team_users_path(user)%>
                         <%end%>
                       <%end%>
