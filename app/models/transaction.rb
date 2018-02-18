@@ -9,7 +9,6 @@ class Transaction < ActiveRecord::Base
   	transaction = self
   	@company_user = transaction.user
   	@total_amount =  transaction.amount
-    byebug
   	if transaction.trans_type == 0
       if @company_user.admin_percent > 0
         @admin = User.where(role_id: 2).first
