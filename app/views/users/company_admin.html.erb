@@ -71,6 +71,7 @@
                       <%if current_user.is_company_admin? || current_user.is_super_admin?%>
                         <%= link_to "Add Member", new_member_users_path(reff_user: user.id)%>
                         <%if current_user.is_super_admin? %>
+                          <%= link_to "Delete", user_path(user), data: { confirm: 'Are you sure?' },  method: :delete, :class => "red"%>
                           <%= link_to "Add Payment", new_transaction_path(user_id: user.id)%>
                           <%= link_to "view Team", team_users_path(user)%>
                         <%end%>
