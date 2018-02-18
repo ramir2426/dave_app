@@ -6,7 +6,7 @@
 
       <div class="navbar nav_title" style="border: 0;">
         <%= link_to root_path, class: "site_title" do %>
-        	<i class="fa fa-paw"></i> <span>Patner App</span>
+        	<i class="fa fa-paw"></i> <span>Partner App</span>
         <%end%>
       </div>
       <div class="clearfix"></div>
@@ -19,7 +19,12 @@
         </div>
         <div class="profile_info">
           <span>Welcome,</span>
-          <h2><%= current_user.full_name%></h2>
+          <h2>
+            <%if current_user.is_super_admin?%>
+              <%= current_user.full_name%></h2>
+            <%else%>
+              <%= current_user.is_company_admin? ? current_user.company_name : current_user.root.company_name%>
+            <%end%>
         </div>
       </div>
       <!-- /menu profile quick info -->
@@ -44,11 +49,13 @@
                 <%end%>              
               </li>
             <%end%>
-            <li>
-              <%= link_to  company_admin_users_path do %>
-                <i class="fa fa-desktop"></i> Company Admin
-              <%end%>
-            </li>
+            <%unless current_user.is_member?%>
+              <li>
+                <%= link_to  company_admin_users_path do %>
+                  <i class="fa fa-desktop"></i> Company Management
+                <%end%>
+              </li>
+            <%end%>
             <li>
               <%= link_to  members_users_path do %>
                 <i class="fa fa-table"></i> Your Team

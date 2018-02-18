@@ -60,6 +60,12 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def destroy
+		@user = User.find(params[:id])
+		@user.destroy
+		redirect_to members_users_path
+	end
+
 	def company_admin
 		if current_user.is_super_admin?
 			@users = User.where(role_id: 1)

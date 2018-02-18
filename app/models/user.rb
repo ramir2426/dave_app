@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
-	has_ancestry
+	has_ancestry :orphan_strategy => :restrict
 	has_many :transactions
 	has_many :trans_logs
 	attr_accessor :referral_code

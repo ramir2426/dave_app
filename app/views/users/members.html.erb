@@ -3,7 +3,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Member Page</h3>
+        <h3>Partnership Page</h3>
       </div>
 
       <div class="title_right">
@@ -22,9 +22,9 @@
     <div class="row">
 
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel" style="height:600px;">
+        <div class="x_panel" style="height:600px;overflow:  auto;">
           <div class="x_title">
-            <h2>Member <small>network</small></h2>
+            <h2>Partnership <small>network</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li class="dropdown" title="Add New Admin">
                 <%if current_user.is_company_admin? %>
@@ -48,7 +48,7 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Email</th>
-                  <th>Company</th>
+                  <th>Level</th>
                   <th>Role</th>
                   <th>Balance</th>
                   <th>Percentage</th>
@@ -63,13 +63,14 @@
                     <td><%= user.first_name%></td>
                     <td><%= user.last_name%></td>
                     <td><%= user.email%></td>
-                    <td><%= user.root.company_name%></td>
+                    <td><%= user.depth%></td>
                     <td><%= user.role_id%></td>
                     <td class="<%= user.amount < 0 ? "unpaid" : "paid" %>"><%= user.amount.abs%></td>
                     <td><%= user.percentage%></td>
                     <td><%= link_to "View", user_path(user)%>
                     <%if current_user.is_company_admin? || current_user.is_super_admin?%>
                       <%= link_to "Edit", edit_user_path(user)%>
+                      <%= link_to "Delete", user_path(user), data: { confirm: 'Are you sure?' },  method: :delete%>
                       <%= link_to "Add Member", new_member_users_path(reff_user: user.id)%>
                     <%end%>
                     </td>
