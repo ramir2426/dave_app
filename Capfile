@@ -20,7 +20,6 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.0'
 
 require "capistrano/bundler"
-before "deploy:assets:precompile", "bundle:install"
 load 'deploy/assets'
 
 require 'capistrano/rails/assets'
