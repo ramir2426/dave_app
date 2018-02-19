@@ -1,7 +1,7 @@
 set :rails_env, 'production'
 set :migrate_env, 'production'
 
-set :deploy_to, '/var/rails/dave_app'
+set :deploy_to, '/var/rails/gentelella_on_rails'
 set :branch, 'master'
 
 role :app, %w{deploy@54.37.16.17}
