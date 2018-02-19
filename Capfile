@@ -20,8 +20,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.0'
 
 require "capistrano/bundler"
-load 'deploy/assets'
-
+require "rvm/capistrano"
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 # require 'capistrano/rails'
