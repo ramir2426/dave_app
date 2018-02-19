@@ -69,6 +69,14 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def liability
+    @user =  User.find_by_email(params[:email])
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction

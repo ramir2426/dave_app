@@ -73,6 +73,22 @@
                 <%end%>
               </li>
             <%end%>
+            <li><a><i class="fa fa-bank"></i> Account <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu" style="display: none">
+                <li>
+                  <%= link_to "Add Payment", new_transaction_path(user_id: current_user.id)%>
+                </li>
+                <li>
+                  <%= link_to "Liability", liability_transactions_path%>
+                </li>
+                <li><a href="plain_page.html">Plain Page</a>
+                </li>
+                <li><a href="login.html">Login Page</a>
+                </li>
+                <li><a href="pricing_tables.html">Pricing Tables</a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
         <!-- <div class="menu_section">
