@@ -1,5 +1,13 @@
-set :stage, :production
-server '54.37.16.17', user: 'deploy', roles: %w{app db web}
+set :rails_env, 'production'
+set :migrate_env, 'production'
+
+set :deploy_to, '/var/rails/dave_app'
+set :branch, 'master'
+
+role :app, %w{deploy@54.37.16.17}
+role :web, %w{deploy@54.37.16.17}
+role :db,  %w{deploy@54.37.16.17}
+
 
 # server-based syntax
 # ======================
