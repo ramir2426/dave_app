@@ -4,7 +4,7 @@ lock "~> 3.10.1"
 set :application, "GentelellaOnRails"
 set :repo_url, "git@github.com:ramir2426/dave_app.git"
 
-set :deploy_to, "/var/rails/gentelella_on_rails"
+set :deploy_to, "/home/deploy/dave_app"
 
 append :linked_files, "config/database.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads", "public/images", "public"
