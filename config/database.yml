@@ -6,3 +6,11 @@ development:
   port: 5432
   username: postgres
   password: postgres
+production:
+  host: localhost
+  database: dave_appp
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  username: postgres
+  password: postgres
