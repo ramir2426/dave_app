@@ -21,7 +21,7 @@ set :rbenv_ruby, '2.5.0'
 require "capistrano/bundler"
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
-require 'capistrano/rails'
+# require 'capistrano/rails'
 require 'capistrano/passenger'
 
 
