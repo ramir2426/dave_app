@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @trans_log.amount %>
+</p>
+
+<p>
+  <strong>Pre balance:</strong>
+  <%= @trans_log.pre_balance %>
+</p>
+
+<p>
+  <strong>New balance:</strong>
+  <%= @trans_log.new_balance %>
+</p>
+
+<p>
+  <strong>Transaction:</strong>
+  <%= @trans_log.transaction_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @trans_log.user_id %>
+</p>
+
+<p>
+  <strong>Trans type:</strong>
+  <%= @trans_log.trans_type %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @trans_log.comment %>
+</p>
+
+<%= link_to 'Edit', edit_trans_log_path(@trans_log) %> |
+<%= link_to 'Back', trans_logs_path %>

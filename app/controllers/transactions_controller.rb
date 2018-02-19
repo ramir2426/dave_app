@@ -77,6 +77,16 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def adjustment
+    if current_user.is_company_admin?
+      @users = User.all
+      # @users = current_user.descendants
+    else
+      flash[:warning] = "Adjustment only create with company admin user!"
+      redirect_to root_path
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Trans Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Pre balance</th>
+      <th>New balance</th>
+      <th>Transaction</th>
+      <th>User</th>
+      <th>Trans type</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trans_logs.each do |trans_log| %>
+      <tr>
+        <td><%= trans_log.amount %></td>
+        <td><%= trans_log.pre_balance %></td>
+        <td><%= trans_log.new_balance %></td>
+        <td><%= trans_log.transaction_id %></td>
+        <td><%= trans_log.user_id %></td>
+        <td><%= trans_log.trans_type %></td>
+        <td><%= trans_log.comment %></td>
+        <td><%= link_to 'Show', trans_log %></td>
+        <td><%= link_to 'Edit', edit_trans_log_path(trans_log) %></td>
+        <td><%= link_to 'Destroy', trans_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trans log', new_trans_log_path %>

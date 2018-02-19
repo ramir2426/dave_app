@@ -17,10 +17,11 @@ Rails.application.routes.draw do
   resources :transactions do
     collection do 
       get "liability", to: "transactions#liability", as: :liability
-      get "filter_liability", to: "transactions#filter_liability", as: :filter_liability
       get "adjustment", to: "transactions#adjustment", as: :adjustment
     end
   end
+
+  resources :trans_logs
 
   
   # The priority is based upon order of creation: first created -> highest priority.

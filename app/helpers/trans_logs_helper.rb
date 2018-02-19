@@ -1,0 +1,2 @@
+module TransLogsHelper
+end
