@@ -15,12 +15,12 @@ require "capistrano/deploy"
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
-require "capistrano/rbenv"
-set :rbenv_type, :user
-set :rbenv_ruby, '2.5.0'
+require 'capistrano/rvm'
+set :rvm_type, :user
+set :rvm_ruby_version, '2.5.0'
+
 
 require "capistrano/bundler"
-require "rvm/capistrano"
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 # require 'capistrano/rails'

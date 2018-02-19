@@ -5,8 +5,7 @@ set :application, "GentelellaOnRails"
 set :repo_url, "git@github.com:ramir2426/dave_app.git"
 
 set :deploy_to, "/home/deploy/dave_app"
-require "bundler/capistrano"
-require "rvm/capistrano"
+
 before "deploy:assets:precompile", "bundle:install"
 append :linked_files, "config/database.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads", "public/images", "public"
