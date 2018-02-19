@@ -29,7 +29,6 @@ gem 'devise'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'ancestry'
 gem 'pg'
-gem 'exception_notification'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
