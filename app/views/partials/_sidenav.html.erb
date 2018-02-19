@@ -66,26 +66,22 @@
 								<i class="fa fa-bar-chart-o"></i> Payments
 							<%end%>
 						</li>
+			
 						<%if current_user.is_company_admin?%>
-							<li>
-								<%= link_to   new_transaction_path(user_id: current_user.id) do %>
-									<i class="fa fa-bank"></i> Account
-								<%end%>
+							<li><a><i class="fa fa-bank"></i> Account <span class="fa fa-chevron-down"></span></a>
+								<ul class="nav child_menu" style="display: none">
+									<li>
+										<%= link_to "Add Payment", new_transaction_path(user_id: current_user.id)%>
+									</li>
+									<li>
+										<%= link_to "Liability", liability_transactions_path%>
+									</li>
+									<li>
+										<%= link_to "Adjustment",adjustment_transactions_path%>
+									</li>
+								</ul>
 							</li>
 						<%end%>
-						<li><a><i class="fa fa-bank"></i> Account <span class="fa fa-chevron-down"></span></a>
-							<ul class="nav child_menu" style="display: none">
-								<li>
-									<%= link_to "Add Payment", new_transaction_path(user_id: current_user.id)%>
-								</li>
-								<li>
-									<%= link_to "Liability", liability_transactions_path%>
-								</li>
-								<li>
-									<%= link_to "Adjustment",adjustment_transactions_path%>
-								</li>
-							</ul>
-						</li>
 					</ul>
 				</div>
 				<!-- <div class="menu_section">
