@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'ancestry'
+gem 'turbo-sprockets-rails3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
