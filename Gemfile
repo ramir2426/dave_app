@@ -29,7 +29,7 @@ gem 'devise'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'ancestry'
 gem 'therubyracer'
-
+gem 'gentelella-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -57,7 +57,7 @@ group :development do
 	gem 'capistrano-rails', '~> 1.2'
 	gem 'capistrano-passenger', '~> 0.2.0'
 	gem 'capistrano-rvm'
-    gem 'capistrano-bundler'
+  gem 'capistrano-bundler'
 end
 
 

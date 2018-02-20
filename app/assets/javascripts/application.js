@@ -17,6 +17,8 @@
 //= require dataTables/jquery.dataTables
 //= require turbolinks
 
+//= require gentelella
+//= require gentelella-custom
 //= require js/flot/jquery.flot.js
 //= require js/flot/jquery.flot.pie.js
 //= require js/flot/jquery.flot.orderBars.js
