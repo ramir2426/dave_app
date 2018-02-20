@@ -12,7 +12,7 @@ before "deploy:assets:precompile", "bundle:install"
 append :linked_files, "config/database.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 server '54.37.16.17', user: 'deploy', roles: %w{app db web}
-set :rvm_bin_path, "$HOME/.rvm/"
+set :rvm_bin_path, "$HOME/.rvm/bin"
 set :bundle_without, [:development, :test]
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
