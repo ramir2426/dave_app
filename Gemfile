@@ -29,6 +29,8 @@ gem 'devise'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'ancestry'
 gem 'turbo-sprockets-rails3'
+gem 'therubyracer'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

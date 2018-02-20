@@ -8,6 +8,8 @@ role :app, %w{deploy@54.37.16.17}
 role :web, %w{deploy@54.37.16.17}
 role :db,  %w{deploy@54.37.16.17}
 
+set :password, ask('Server password:', nil)
+server '54.37.16.17', user: 'deploy', roles: %w{web app db}, password: fetch(:password)
 
 # server-based syntax
 # ======================
