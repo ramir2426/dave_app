@@ -1,4 +1,4 @@
-class CreateTransLogs < ActiveRecord::Migration
+class CreateTransLogs < ActiveRecord::Migration[5.0]
   def change
     create_table :trans_logs do |t|
       t.float :amount
