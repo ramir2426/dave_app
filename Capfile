@@ -21,7 +21,7 @@ install_plugin Capistrano::SCM::Git
 # require 'capistrano/passenger'
 # require 'capistrano/rvm'
 set :rvm_type, :user
-set :rvm_ruby_version, '2.2.3'
+set :rvm_ruby_version, '2.2.5'
 
 set :passenger_restart_with_touch, true
 
