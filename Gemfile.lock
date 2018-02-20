@@ -231,6 +231,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
+  sprockets-rails
   therubyracer
   turbo-sprockets-rails3
   turbolinks

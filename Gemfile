@@ -30,6 +30,7 @@ gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'ancestry'
 gem 'turbo-sprockets-rails3'
 gem 'therubyracer'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
 # Use ActiveModel has_secure_password
