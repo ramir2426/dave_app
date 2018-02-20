@@ -13,6 +13,7 @@ append :linked_files, "config/database.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 server '54.37.16.17', user: 'deploy', roles: %w{app db web}
 set :bundle_without, [:development, :test]
+set :rvm_bin_path, "$HOME/bin"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
