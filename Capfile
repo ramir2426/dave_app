@@ -14,14 +14,14 @@ require "capistrano/deploy"
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
-require 'capistrano/rvm'
-require 'capistrano/rails/assets'
+# If you are using rvm add these lines:
 require 'capistrano/bundler'
-
+require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/passenger'
-
-
+require 'capistrano/rvm'
+set :rvm_type, :user
+set :rvm_ruby_version, '2.5.0'
 
 # Include tasks from other gems included in your Gemfile
 #

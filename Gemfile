@@ -52,11 +52,10 @@ group :development do
 	gem 'spring'
 end
 group :development do
-	gem 'capistrano', '~> 3.6'
-	gem 'capistrano-bundler', '~> 1.3'
-	gem 'capistrano-rails'
-	gem 'capistrano-rvm', git: 'git@github.com:capistrano/rvm.git'
-  gem 'capistrano-passenger'
+	gem 'capistrano', '~> 3.7', '>= 3.7.1'
+	gem 'capistrano-rails', '~> 1.2'
+	gem 'capistrano-passenger', '~> 0.2.0'
+	gem 'capistrano-rvm'
 end
 
 
