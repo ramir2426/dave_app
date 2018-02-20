@@ -7,10 +7,11 @@ set :repo_url, "git@github.com:ramir2426/dave_app.git"
 
 set :deploy_to, "/home/deploy/dave_app"
 
-before "deploy:assets:precompile", "bundle:install"
+# before "deploy:assets:precompile", "bundle:install"
 append :linked_files, "config/database.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 server '54.37.16.17', user: 'deploy', roles: %w{app db web}
+set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
