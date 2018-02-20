@@ -11,3 +11,10 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( footermanifest.js)
+Rails.application.config.assets.precompile += %w( users.js)
+Rails.application.config.assets.precompile += %w( users.scss)
+Rails.application.config.assets.precompile += %w( welcome.js)
+Rails.application.config.assets.precompile += %w( welcome.scss)
+Rails.application.config.assets.precompile += %w( erorrs.js)
+Rails.application.config.assets.precompile += %w( erorrs.scss)
+Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
