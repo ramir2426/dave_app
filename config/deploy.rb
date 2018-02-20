@@ -11,9 +11,6 @@ before "deploy:assets:precompile", "bundle:install"
 append :linked_files, "config/database.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 server '54.37.16.17', user: 'deploy', roles: %w{app db web}
-set :rvm_ruby_version, 'ruby-2.5.0'
-set :default_env, { rvm_bin_path: '~/.rvm/bin' }
-SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
