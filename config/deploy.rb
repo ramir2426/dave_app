@@ -1,4 +1,6 @@
 # config valid for current version and patch releases of Capistrano
+SSHKit.config.command_map[:rake] = "bundle exec rake"
+
 lock "~> 3.10.1"
 
 set :application, "GentelellaOnRails"
