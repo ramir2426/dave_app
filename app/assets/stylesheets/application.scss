@@ -41,3 +41,17 @@
 .break-div{
 	word-break: break-all;
 }
+.logo-img{
+	width: 60px;
+    display: block;
+    height: 60px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    overflow: hidden;
+    text-align: center;
+    background: white;
+}
+.logo-img img{
+	width: 73%;
+}
